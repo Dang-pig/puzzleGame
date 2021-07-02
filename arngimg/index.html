@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>puzzle game</title>
+</head>
+<body>
+    <span id="res" style="font-size: xx-large; color: red;">That's not a picture!</span><br>
+    <img src="images/img1.jpg" id="img1" alt="1" onclick="chuyenAnh(this.id)"><br>
+    <img src="images/img8.jpg" id="img2" alt="8" onclick="chuyenAnh(this.id)"><br>
+    <img src="images/img7.jpg" id="img3" alt="7" onclick="chuyenAnh(this.id)"><br>
+    <img src="images/img3.jpg" id="img4" alt="3" onclick="chuyenAnh(this.id)"><br>
+    <script>
+       function chuyenAnh(id)
+        {
+          let img=document.getElementById(id);
+          let num=parseInt(img.alt);
+          if (num<8){
+              num++;
+          }else {num=1;}
+          img.src="images/img"+num+".jpg";
+          img.alt=num;
+          check();
+        }
+       function check(){
+           let a=document.getElementById("img1").alt;
+           let b=document.getElementById("img2").alt;
+           let c=document.getElementById("img3").alt;
+           let d=document.getElementById("img4").alt;
+        if (a=="1" && b=="2" && c=="3" && d=="4" || a=="5" && b == "6" && c == "7" && d == "8")
+        {
+            document.getElementById("res").innerText="That's a picture!"
+        }
+        else
+        {
+            document.getElementById("res").innerText="That's not a picture!"
+        }
+       }
+    </script>
+</body>
+</html>
